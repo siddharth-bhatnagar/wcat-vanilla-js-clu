@@ -1,2 +1,2 @@
 # wcat-clu
-This is command line utility similar to cat command in UNIX based systems.
+This is command line utility similar to cat command in UNIX based systems written in vanilla javascript.
