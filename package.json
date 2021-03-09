@@ -1,0 +1,27 @@
+{
+  "name": "wcat-vanilla-js-clu",
+  "version": "1.0.0",
+  "description": "This is a command line utility",
+  "main": "script.js",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "bin": {
+    "wcat": "script.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wcat": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddharth-bhatnagar/wcat-vanilla-js-clu.git"
+  },
+  "author": "Siddharth Bhatnagar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siddharth-bhatnagar/wcat-vanilla-js-clu/issues"
+  },
+  "homepage": "https://github.com/siddharth-bhatnagar/wcat-vanilla-js-clu#readme"
+}
