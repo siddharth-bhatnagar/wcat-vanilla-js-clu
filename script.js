@@ -31,7 +31,7 @@ function wcat(cmds) {
     // writing commands
     if (options.includes("-w")) {
         if (options.length != 1 || files.length != 2 || cmds.indexOf("-w") != 1) {
-            console.log("Command not found");
+            console.log("Command not found.");
             return;
         }
         let data = fs.readFileSync(files[0], "utf-8");
@@ -39,12 +39,34 @@ function wcat(cmds) {
         return;
     } else if (options.includes("-a")) {
         if (options.length != 1 || files.length != 2 || cmds.indexOf("-a") != 1) {
-            console.log("Command not found");
+            console.log("Command not found.");
             return;
         }
         let file1 = fs.readFileSync(files[0], "utf-8");
         let file2 = fs.readFileSync(files[1], "utf-8");
         fs.writeFileSync(files[1], file2 + "\r\n" + file1);
+        return;
+    } else if (options.includes("-ws")) {
+        if (options.length != 1 || files.length != 2 || cmds.indexOf("-ws") != 1) {
+            console.log("Command not found.");
+            return;
+        }
+
+        let file1 = fs.readFileSync(files[0], "utf-8");
+        let lines = file1.split("\r\n");
+        fs.writeFileSync(files[1], "");
+        for (i in lines) {
+            if (lines[i] != "") {
+                let data = fs.readFileSync(files[1], "utf-8");
+                if (data.length != 0) {
+                    fs.writeFileSync(files[1], data + "\r\n" + lines[i]);
+                }
+                else {
+                    fs.writeFileSync(files[1], lines[i]);
+                }
+
+            }
+        }
         return;
     }
 
@@ -54,7 +76,7 @@ function wcat(cmds) {
     for (i in files) {
         let data = fs.readFileSync(files[i], "utf-8");
         if (options.includes("-s")) {
-            let lines = data.split("\r\n");
+            let lines = data.split("\r\n");  // each line is of the ith file is stored in lines array
             // let allText = "";
             for (j in lines) {
                 if (lines[j] != "") {
